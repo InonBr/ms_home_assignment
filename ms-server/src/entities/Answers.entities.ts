@@ -25,7 +25,7 @@ export class Answer extends BaseEntity {
     type: 'numeric',
     default: 0,
   })
-  voted!: number;
+  voted: number;
 
   @CreateDateColumn()
   created_at!: Date;

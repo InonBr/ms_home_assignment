@@ -30,10 +30,10 @@ export class QuestionsController {
       ]);
 
       if (!question) {
-        res.status(404).send({ msg: 'not found' });
+        return res.status(404).send({ msg: 'not found' });
       }
 
-      return { question, answers };
+      return res.status(200).send({ question, answers });
     } catch (error) {
       console.log(error);
 
