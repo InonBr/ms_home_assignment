@@ -18,16 +18,19 @@ export class Answer extends BaseEntity {
   @Column({ type: 'boolean' })
   is_correct!: boolean;
 
-  @Column({ nullable: false, type: 'string' })
+  @Column({ nullable: false })
   text!: string;
 
-  @Column({ type: 'number', default: 0 })
-  voted: number;
+  @Column({
+    type: 'numeric',
+    default: 0,
+  })
+  voted!: number;
 
   @CreateDateColumn()
   created_at!: Date;
 
-  @ManyToOne(() => Question, (question) => question.answer)
+  @ManyToOne(() => Question, (question) => question.answers)
   @JoinColumn({
     name: 'question_id',
   })

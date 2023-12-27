@@ -25,5 +25,5 @@ export class Question extends BaseEntity {
   created_at!: Date;
 
   @OneToMany(() => Answer, (answer) => answer.question)
-  answer: Answer[];
+  answers: Answer[];
 }
