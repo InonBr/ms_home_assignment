@@ -16,7 +16,8 @@ export const databaseProviders = [
         synchronize: true,
       });
 
-      return dataSource.initialize();
+      await dataSource.initialize();
+      console.log(`🔵  DB is connected `);
     },
   },
 ];
