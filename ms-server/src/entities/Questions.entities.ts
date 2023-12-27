@@ -4,9 +4,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
+import { Answer } from './Answers.entities';
 
 @Entity('question')
 export class Question extends BaseEntity {
@@ -21,4 +23,7 @@ export class Question extends BaseEntity {
 
   @CreateDateColumn()
   created_at!: Date;
+
+  @OneToMany(() => Answer, (answer) => answer.question)
+  answer: Answer[];
 }

@@ -1,4 +1,5 @@
 import { database, dbPort, host, password, username } from 'src/config';
+import { Answer } from 'src/entities/Answers.entities';
 import { Question } from 'src/entities/Questions.entities';
 import { DataSource } from 'typeorm';
 
@@ -13,7 +14,7 @@ export const databaseProviders = [
         username,
         password,
         database,
-        entities: [Question],
+        entities: [Question, Answer],
         synchronize: true,
       });
 
