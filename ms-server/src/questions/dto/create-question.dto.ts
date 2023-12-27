@@ -3,7 +3,10 @@ import { QuestionTypeEnum } from 'src/systems/utils';
 
 export class CreateQuestionDto {
   @IsArray({ message: 'answers must be provided' })
-  questionPossibleAnswers: ReadonlyArray<string>;
+  questionPossibleAnswers: ReadonlyArray<{
+    isCorrect: boolean;
+    questionText: string;
+  }>;
 
   @IsNotEmpty({ message: 'question name must not be empty' })
   @IsString({ message: 'question must be a string' })
