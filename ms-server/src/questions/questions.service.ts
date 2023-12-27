@@ -39,4 +39,16 @@ export class QuestionsService {
 
     await Answer.save(answers);
   }
+
+  async getAnswersByQuestion(id: string) {
+    return await Answer.find({
+      where: { question: { id } },
+    });
+  }
+
+  async getQuestion(id: string) {
+    return await Question.findOne({
+      where: { id },
+    });
+  }
 }
