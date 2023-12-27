@@ -1,8 +1,8 @@
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
 
-dotenv.config();
+config();
 
-export const port = process.env.PORT || '5000';
+export const port = process.env.PORT || '5005';
 
 export const host = process.env.DB_HOST;
 export const dbPort = parseInt(

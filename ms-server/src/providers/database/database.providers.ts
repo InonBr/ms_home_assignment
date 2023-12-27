@@ -1,4 +1,5 @@
 import { database, dbPort, host, password, username } from 'src/config';
+import { Question } from 'src/entities/Questions.entities';
 import { DataSource } from 'typeorm';
 
 export const databaseProviders = [
@@ -12,12 +13,11 @@ export const databaseProviders = [
         username,
         password,
         database,
-        entities: [],
+        entities: [Question],
         synchronize: true,
       });
 
-      await dataSource.initialize();
-      console.log(`🔵  DB is connected `);
+      return dataSource.initialize();
     },
   },
 ];
